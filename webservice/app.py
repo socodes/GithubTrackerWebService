@@ -55,8 +55,9 @@ def total_issues(open_issues, closed_issues):
 
     return total_open_issues, total_closed_issues, total_issue_number
 
+@app.route('/calculate_metrics')
 @app.route('/')
-def main():
+def calculate_metrics():
     repo_name = "DIP-Group/GithubTracker"
     repo = get_repo(repo_name)
     open_issues = take_issues(repo,'open')
