@@ -66,13 +66,56 @@ def calculate_metrics():
     closed_comment,open_comment,total_comment = total_comment_number(open_issues, closed_issues)
     label_no = total_labels(open_issues, closed_issues)
     result = {
+        "Repository_name": repo_name,
+        "Open_issue_number": total_open_issues,
+        "Closed_issue_number": total_closed_issues,
+        "Total_issue_number": total_issue_number,
+        "Closed_comment_number": closed_comment,
+        "Open_comment_number": open_comment,
+        "Total_comment_number": total_comment,
+        "Total_label_number": label_no
+    }
+    return result
+
+@app.route('/issues')
+def issues():
+    repo_name = "DIP-Group/GithubTracker"
+    repo = get_repo(repo_name)
+    open_issues = take_issues(repo,'open')
+    closed_issues = take_issues(repo,'closed')
+    total_open_issues, total_closed_issues, total_issue_number = total_issues(open_issues,closed_issues)
+    result = {
+        "Repository_name": repo_name,
+        "Open_issue_number": total_open_issues,
+        "Closed_issue_number": total_closed_issues,
+        "Total_issue_number": total_issue_number,
+    }
+    return result
+
+@app.route('/comments')
+def comments():
+    repo_name = "DIP-Group/GithubTracker"
+    repo = get_repo(repo_name)
+    open_issues = take_issues(repo,'open')
+    closed_issues = take_issues(repo,'closed')
+    closed_comment,open_comment,total_comment = total_comment_number(open_issues, closed_issues)
+    result = {
         "Repository name": repo_name,
-        "Open issue number": total_open_issues,
-        "Closed issue number": total_closed_issues,
-        "Total issue number": total_issue_number,
         "Closed comment number": closed_comment,
         "Open comment number": open_comment,
         "Total comment number": total_comment,
+    }
+    return result
+
+@app.route('/labels')
+def labels():
+    repo_name = "DIP-Group/GithubTracker"
+    repo = get_repo(repo_name)
+    open_issues = take_issues(repo,'open')
+    closed_issues = take_issues(repo,'closed')
+    label_no = total_labels(open_issues, closed_issues)
+    result = {
+        "Repository name": repo_name,
         "Total label number": label_no
     }
     return result
