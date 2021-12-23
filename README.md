@@ -1,6 +1,6 @@
-# GithubTrackerWebService
+## Github Tracker
 
-GitHubTracker Webservice has two parts:
+Github Tracker facilitates the processes of users who want to examine issue data on Github. The program has two parts:
 
 ## 1 - Webservice:
 
