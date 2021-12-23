@@ -42,6 +42,7 @@ export default function Graph(props) {
             },
           }}
         />
+        <div className="total">Total Issue Number: {totalIssue}</div>
       </div>
     );
   } else if (props.status === "comment") {
@@ -72,7 +73,9 @@ export default function Graph(props) {
             },
           }}
         />
+        <div className="total">Total Comment Number: {totalComment}</div>
       </div>
+      
     );
   }
   else  {
