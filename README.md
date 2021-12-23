@@ -2,11 +2,11 @@
 
 Github Tracker facilitates the processes of users who want to examine issue data on Github. The program has two parts:
 
-## 1 - Webservice:
+### 1 - Webservice:
 
 Backend part has been developed with Flask. It makes a request to GitHub API and returns the necessary information in json format.
 
-## 2 - UI:
+### 2 - UI:
 
 Frontend part has been developed with React. It makes request to webservice and shows the information in graphs.
 
